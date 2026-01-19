@@ -1,0 +1,11 @@
+{
+    "servers": [
+        {
+            "id": "origin",
+            "name": "源站 (Origin)",
+            "baseUrl": "https://i0.hdslb.com",
+            "noReferrer": true
+        }
+    ]
+}
+

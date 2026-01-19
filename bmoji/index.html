@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>哔哩哔哩表情包</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container doc-layout">
+        <button id="toggle-sidebar-btn" class="toggle-sidebar-btn">☰</button>
+        <aside id="sidebar" class="sidebar">
+            <!-- Removed Sidebar Info Section -->
+            <div class="sidebar-header">
+                <h2 id="sidebar-main-title">哔哩哔哩表情包</h2>
+                <input type="text" id="search-packages" placeholder="搜索分组...">
+                <select id="server-select"></select>
+            </div>
+            <ul id="package-list" class="package-list">
+                <!-- Package list will be loaded here -->
+            </ul>
+        </aside>
+        <main id="main-content" class="main-content">
+            <h1 id="current-package-title">欢迎使用 Bmoji Explorer</h1> <!-- Initial Title -->
+            <!-- Default Welcome Page -->
+            <div id="welcome-page" class="welcome-page">
+                <h2>欢迎！</h2>
+                <p>本网站收录了BiliBili几乎所有表情</p>
+                <p>首次访问需要下载大约15MB表情列表</p>
+                <!-- Loading Progress Bar START -->
+                <div id="loading-progress" style="display: none; margin-top: 20px;">
+                    <p>正在加载表情数据...</p>
+                    <progress id="progress-bar" value="0" max="100" style="width: 100%;"></progress>
+                    <p><span id="progress-percent">0</span>% (<span id="progress-loaded">0</span> / <span id="progress-total">0</span> MB)</p>
+                    <p>速度: <span id="progress-speed">0</span> KB/s</p>
+                </div>
+                <!-- Loading Progress Bar END -->
+                <p style="margin-top: 20px;">本网站基于 <a href="https://github.com/xuesenyaqwq/Bmoji" target="_blank">Bmoji</a></p>
+                <p>特别感谢：</p>
+                <ul>
+                    <li><a href="https://socialsisteryi.github.io/bilibili-API-collect/docs/emoji/list.html" target="_blank">BAC BiliBili Api</a></li>
+                    <li><a href="https://github.com/lrhtony/BiliEmoji" target="_blank">BiliEmoji</a></li>
+                    <li><a href="https://manus.im/" target="_blank">manus.im</a></li>
+		</ul>
+		<p style="margin-top: 20px;">其他网站 <a href="https://tab.niaohan.top" target="_blank">灰原键的导航页</a></p>
+            </div>
+            <!-- Emoji Display Area (Initially Hidden) -->
+            <div id="emoji-display" class="emoji-display" style="display: none;">
+                <!-- Emojis of the selected package will be loaded here -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal for copy options (Reference Image Style) -->
+    <div id="copy-modal" class="modal">
+        <div class="modal-content">
+            <h3 id="modal-emoji-name"></h3>
+            <span class="close-btn modal-close-top">&times;</span>
+            <img id="modal-emoji-img" src="" alt="Emoji Preview">
+
+            <!-- URL Copy Section -->
+            <label class="copy-label" for="copy-url-content">Direct URL:</label>
+            <div class="copy-section new-style">
+                <span class="copy-content-display" id="copy-url-content"></span>
+                <button class="copy-button new-style" id="copy-url-button">Copy</button>
+            </div>
+            <p class="copy-feedback" id="copy-url-feedback"></p>
+
+            <!-- Markdown Copy Section -->
+            <label class="copy-label" for="copy-md-content">Markdown:</label>
+            <div class="copy-section new-style">
+                <span class="copy-content-display" id="copy-md-content"></span>
+                <button class="copy-button new-style" id="copy-md-button">Copy</button>
+            </div>
+            <p class="copy-feedback" id="copy-md-feedback"></p>
+
+            <button class="close-button-bottom" id="modal-close-bottom">Close</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
